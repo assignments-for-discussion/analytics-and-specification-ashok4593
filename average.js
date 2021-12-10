@@ -1,6 +1,14 @@
-
 function average(numbers) {
-  return numbers.reduce((p, c)=> p + c, 0) / numbers.length;
+  let totalNotNulls = numbers.length;
+  return (
+    numbers.reduce((p, c) => {
+      if (c) {
+        return p + c;
+      }
+      totalNotNulls--;
+      return p;
+    }, 0) / totalNotNulls
+  );
 }
 
-module.exports = {average};
+module.exports = { average };
